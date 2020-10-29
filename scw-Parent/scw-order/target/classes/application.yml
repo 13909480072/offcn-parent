@@ -1,0 +1,42 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/atcrowdfunding?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat #开启监控过滤器
+  application:
+    name: SCW-ORDER
+  redis:
+    host: 192.168.15.128
+    port: 6379
+    password:
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml #mybatis配置文件
+  mapper-locations: classpath:com/offcn/order/mapper/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10000/eureka/
+
+  instance:
+    prefer-ip-address: true
+
+logging:
+  file:
+    path: E:\file\log\scw-project #存放路径的等级
+  level:
+    com:
+      offcn: debug
+
+oss:
+  endpoint: http://oss-cn-beijing.aliyuncs.com
+  accessKeyId: LTAI4G35pR5s6WzNiVG78PSe
+  accessKeySecret: Bhc26AERKyiePtIHfSQjP8K6enGgSt
+  bucketName: fingmen
